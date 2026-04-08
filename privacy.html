@@ -22,8 +22,6 @@
     ul li { margin-bottom: 0.4rem; }
     .app-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; }
     .app-card .app-name { font-size: 1.05rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.5rem; }
-    .badge { display: inline-block; font-size: 0.75rem; font-weight: 600; background: #ebf8f0; color: #276749; border-radius: 4px; padding: 0.15rem 0.5rem; margin-left: 0.5rem; vertical-align: middle; }
-    .badge-cloud { background: #ebf0ff; color: #2b4acb; }
     .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 1rem 0; }
     .data-table th { background: #f7f7fb; padding: 0.6rem 0.8rem; text-align: left; font-weight: 600; border: 1px solid #e2e8f0; }
     .data-table td { padding: 0.6rem 0.8rem; border: 1px solid #e2e8f0; vertical-align: top; }
@@ -43,34 +41,47 @@
 <main>
   <p class="meta">
     <strong>Effective date:</strong> April 5, 2026 &nbsp;&middot;&nbsp;
-    <strong>Last updated:</strong> April 6, 2026
+    <strong>Last updated:</strong> April 8, 2026
   </p>
 
-  <p>This Privacy Policy applies to all mobile and desktop applications published by <strong>Hays Process Solutions LLC</strong> (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). It explains what information our apps collect, how we use it, and your rights regarding that information.</p>
+  <p>This Privacy Policy applies to all mobile and desktop applications published by
+  <strong>Hays Process Solutions LLC</strong> (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+  It explains what information our apps collect, how we use it, and your rights regarding that information.</p>
 
-  <p>By using any of our apps, you agree to the practices described in this policy. If you do not agree, please discontinue use of the app.</p>
+  <p>By using any of our apps, you agree to the practices described in this policy.
+  If you do not agree, please discontinue use of the app.</p>
 
   <h2>Our Applications</h2>
 
   <div class="app-card">
-    <div class="app-name">PollyTimer
-      <span class="badge">Free tier: no data collected</span>
-      <span class="badge badge-cloud">Premium: cloud features below</span>
-    </div>
-    <p>PollyTimer is a voice-controlled timer app for iOS and Android. It lets you set, pause, and cancel timers using natural speech, and receive spoken countdowns and alerts.</p>
+    <div class="app-name">PollyTimer</div>
 
-    <h3>Free Tier — No Data Collected</h3>
-    <p>In its free configuration, <strong>PollyTimer does not collect, store, transmit, or share any personal information.</strong> All features described in this section operate entirely on your device.</p>
+    <p>PollyTimer is a voice-controlled timer app for iOS and Android. It lets you set,
+    pause, and cancel timers using natural speech, and receive spoken countdowns and alerts.</p>
 
+    <h3>All Users &mdash; Analytics</h3>
+    <p>PollyTimer uses <strong>PostHog</strong> for anonymous product analytics. PostHog collects
+    usage events (e.g. &ldquo;timer started,&rdquo; &ldquo;group saved&rdquo;) and basic session
+    data (device type, app version) to help us improve the app. No personally identifiable
+    information is attached to these events. <strong>Analytics is enabled by default and can be
+    disabled at any time in Settings &rarr; Privacy.</strong> When analytics is disabled, no data
+    is sent to PostHog.</p>
+
+    <h3>All Users &mdash; On-Device Features</h3>
+    <p>Apart from analytics, the following features operate entirely on your device with no data
+    sent to our servers:</p>
     <ul>
-      <li><strong>Voice &amp; Speech:</strong> Processed by your device&rsquo;s built-in OS speech recognition (Apple or Android). We never receive your audio.</li>
+      <li><strong>Voice &amp; Speech:</strong> Processed by your device&rsquo;s built-in OS speech
+      recognition (Apple or Android). We never receive your audio. Note: your device&rsquo;s speech
+      recognition service may send audio to Apple or Google servers under their own privacy policies.</li>
       <li><strong>Timer data:</strong> Stored locally on your device only.</li>
       <li><strong>Notifications:</strong> Generated locally. No notification data is sent to our servers.</li>
       <li><strong>Text-to-speech:</strong> Uses your device&rsquo;s on-device TTS engine. No audio leaves your device.</li>
     </ul>
 
-    <h3>Premium Tier — Cloud Features</h3>
-    <p>Premium subscribers may optionally enable cloud-based features. These features are <strong>opt-in only</strong> and require account creation. The following data is processed when enabled:</p>
+    <h3>Premium Tier &mdash; Cloud Features</h3>
+    <p>Premium subscribers may optionally enable cloud-based features. These features are
+    <strong>opt-in only</strong> and require account creation. The following data is processed when enabled:</p>
 
     <table class="data-table">
       <thead>
@@ -85,63 +96,78 @@
         <tr>
           <td><strong>Cloud-enhanced voice recognition</strong></td>
           <td>Transcribed text of your timer request (not raw audio). Sent only when on-device confidence is low (&lt;85%).</td>
-          <td>Supabase Edge Function (hosted in the US) → Anthropic API for parsing intent. Text is not stored after the response is returned.</td>
-          <td>No — processed in-transit only</td>
+          <td>Supabase Edge Function (hosted in the US) &rarr; Anthropic API for parsing intent. Text is not stored after the response is returned.</td>
+          <td>No &mdash; processed in-transit only</td>
         </tr>
         <tr>
           <td><strong>Cloud sync</strong></td>
           <td>Timer group names, timer labels, durations, and tags. No voice recordings.</td>
           <td>Supabase database (hosted in the US), linked to your account via Row Level Security. Only you can access your data.</td>
-          <td>Yes — until you delete your account or data</td>
+          <td>Yes &mdash; until you delete your account or data</td>
         </tr>
         <tr>
           <td><strong>Account authentication</strong></td>
           <td>Email address and hashed password.</td>
           <td>Supabase Auth (hosted in the US).</td>
-          <td>Yes — until account deletion</td>
+          <td>Yes &mdash; until account deletion</td>
         </tr>
       </tbody>
     </table>
 
-    <h3>Analytics</h3>
-    <p>We use PostHog for product analytics. PostHog collects anonymized usage events (e.g. &ldquo;timer started,&rdquo; &ldquo;group saved&rdquo;) to help us improve the app. No personally identifiable information is attached to these events. Analytics can be disabled in Settings &rarr; Privacy.</p>
-
     <h3>Data minimization</h3>
-    <p>Cloud-enhanced voice recognition sends only the <em>text transcript</em> of your voice input &mdash; never raw audio. The transcript is used for a single parsing request and is not logged or retained after the response is returned.</p>
+    <p>Cloud-enhanced voice recognition sends only the <em>text transcript</em> of your voice
+    input &mdash; never raw audio. The transcript is used for a single parsing request and is
+    not logged or retained after the response is returned.</p>
   </div>
 
   <h2>Third-Party Services</h2>
-  <p>Our apps may be distributed through third-party platforms (Apple App Store, Google Play, Amazon Appstore). Those platforms operate under their own privacy policies.</p>
-
+  <p>Our apps may be distributed through third-party platforms (Apple App Store, Google Play,
+  Amazon Appstore). Those platforms operate under their own privacy policies.</p>
   <p>Premium cloud features use the following sub-processors:</p>
   <ul>
-    <li><strong>Supabase</strong> (database and authentication) — <a href="https://supabase.com/privacy">supabase.com/privacy</a></li>
-    <li><strong>Anthropic</strong> (natural language parsing, cloud NLP only) — <a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></li>
-    <li><strong>PostHog</strong> (analytics) — <a href="https://posthog.com/privacy">posthog.com/privacy</a></li>
+    <li><strong>Supabase</strong> (database and authentication) &mdash;
+    <a href="https://supabase.com/privacy">supabase.com/privacy</a></li>
+    <li><strong>Anthropic</strong> (natural language parsing, cloud NLP only) &mdash;
+    <a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></li>
+    <li><strong>PostHog</strong> (analytics) &mdash;
+    <a href="https://posthog.com/privacy">posthog.com/privacy</a></li>
   </ul>
 
   <h2>Children&rsquo;s Privacy</h2>
-  <p>Our apps are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+  <p>Our apps are not directed at children under the age of 13. We do not knowingly collect
+  personal information from children. If you believe a child has provided us with personal
+  information, please contact us and we will delete it promptly.</p>
 
   <h2>Data Security</h2>
-  <p>Free-tier data is stored only on your device, under your operating system&rsquo;s security controls. Premium cloud data is protected by Supabase&rsquo;s Row Level Security policies — only authenticated users can access their own records. All data in transit uses TLS encryption.</p>
+  <p>On-device data is stored locally under your operating system&rsquo;s security controls.
+  Premium cloud data is protected by Supabase&rsquo;s Row Level Security policies &mdash;
+  only authenticated users can access their own records. All data in transit uses TLS encryption.</p>
 
   <h2>Data Retention and Deletion</h2>
-  <p>Free-tier data persists only on your device. To delete it, uninstall the app or clear app data in your device settings.</p>
-  <p>Premium cloud data is retained until you delete your account. To request deletion, email us at the address below or use Settings &rarr; Account &rarr; Delete Account within the app.</p>
+  <p>On-device data persists only on your device. To delete it, uninstall the app or clear
+  app data in your device settings.</p>
+  <p>Premium cloud data is retained until you delete your account. To delete your account:</p>
+  <ul>
+    <li>Open <strong>Settings &rarr; Danger Zone &rarr; Delete Account</strong> within the app, or</li>
+    <li>Email us at <a href="mailto:privacy@haysprocesssolutions.com">privacy@haysprocesssolutions.com</a>
+    with your account email address</li>
+  </ul>
+  <p>Account deletion removes your email, authentication credentials, and all synced timer data
+  from our servers. Local data on your device is not affected.</p>
 
   <h2>Your Rights</h2>
   <p>Depending on your location, you may have rights including:</p>
   <ul>
     <li>The right to access personal data we hold about you</li>
     <li>The right to request correction or deletion of your data</li>
-    <li>The right to opt out of analytics (Settings &rarr; Privacy &rarr; Analytics)</li>
-    <li>The right to opt out of cloud NLP (Settings &rarr; Privacy &rarr; Cloud voice recognition)</li>
+    <li>The right to opt out of analytics (Settings &rarr; Privacy)</li>
+    <li>The right to opt out of cloud voice recognition (Settings &rarr; Speech)</li>
     <li>The right to lodge a complaint with a supervisory authority</li>
   </ul>
 
   <h2>Changes to This Policy</h2>
-  <p>We may update this policy as our apps evolve. The &ldquo;Last updated&rdquo; date at the top of this page will reflect any changes. For material changes, we will notify users within the app.</p>
+  <p>We may update this policy as our apps evolve. The &ldquo;Last updated&rdquo; date at the
+  top of this page will reflect any changes. For material changes, we will notify users within the app.</p>
 
   <div class="contact-box">
     <h2>Contact Us</h2>
@@ -151,7 +177,9 @@
   </div>
 </main>
 
-<footer>&copy; 2026 Hays Process Solutions LLC &nbsp;&middot;&nbsp; All rights reserved</footer>
+<footer>
+  &copy; 2026 Hays Process Solutions LLC &nbsp;&middot;&nbsp; All rights reserved
+</footer>
 
 </body>
 </html>
